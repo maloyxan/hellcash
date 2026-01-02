@@ -65,7 +65,7 @@ def get_payment_keyboard(pay_url: str, invoice_id: int, order_id: int) -> Inline
 def otziv() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
 
-    url_otziv = "https://t.me/gelikwork"
+    url_otziv = "https://t.me/hellcashsupport"
 
     builder.button(text="💬 Написать", url=url_otziv)
     builder.button(text="🔙 Вернуться назад", callback_data="cancel")
@@ -89,4 +89,5 @@ def channel_button() -> InlineKeyboardMarkup:
     builder.button(text="🔙 Вернуться назад", callback_data="cancel")
 
     builder.adjust(1)
+
     return builder.as_markup()
