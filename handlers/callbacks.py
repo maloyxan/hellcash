@@ -162,8 +162,7 @@ async def buy_step_one(callback: CallbackQuery):
     await callback.answer()
     
     text = (
-        "<code>Шаг 1 из 3... Выбор количества для покупки</code>\n\n"
-        "<b>Решил купить аккаунты? Ты на верном пути! ✈️</b>\n"
+        "<code>Процесс... Выбор количества для покупки</code>\n\n"
         "Наши преимущества перед другими сервисами:\n\n"
         "- Мы гарантируем возврат в случаи невалидности 🔮\n"
         "- Возврат происходит, если есть док-ва.\n"
@@ -191,7 +190,7 @@ async def buy_step_two(callback: CallbackQuery, callback_data: BuyCallback):
     )
     
     text = (
-        "<code>Шаг 2 из 3... Оплата товара</code>\n\n"
+        "<code>Процесс... Проверка заказа</code>\n\n"
         "<b>Оплата почти завершена ✅</b>\n"
         f"🔹 Товар: <i>Cash App Accounts</i>\n"
         f"🔹 Количество: <i>{amount} штук</i>\n"
@@ -232,7 +231,7 @@ async def buy_step_three_payment(callback: CallbackQuery, bot: Bot):
         except: pass
 
         text = (
-            "Шаг 2 из 3... Оплата товара\n\n"
+            "Процесс... Оплата товара\n\n"
             "Выбран: CryptoBot\n"
             f"🔹 ID заказа: {invoice.invoice_id}\n"
             f"🔹 Товар: Cash App Accounts\n"
@@ -287,10 +286,10 @@ async def check_payment_handler(callback: CallbackQuery, bot: Bot):
             # 4. Отправляем товар пользователю
             # Используем тег <pre>, чтобы можно было скопировать все аккаунты одним кликом
             success_text = (
-                "✅ <b>Оплата прошла успешно!</b>\n"
-                "🛒 Вот ваш заказ:\n\n"
+                "✅ <b>Успешно!</b>\n"
+                "🛒 Ваш заказ:\n\n"
                 f"<pre>{accounts_list}</pre>\n\n"
-                "Спасибо за покупку! Ждем вас снова."
+                "Спасибо за покупку!"
             )
             
             await callback.message.edit_text(success_text, parse_mode="HTML", reply_markup=get_main_menu())
@@ -335,7 +334,7 @@ async def support_handler(callback: CallbackQuery):
         f"🔹 Менеджер поддержки: @{manager}\n\n"
         "📌 <b>Правила обращения:</b>\n"
         "✅ Будь точен – опиши проблему четко и без лишних сообщений.\n"
-        "✅ Нет спаму! Одно подробное сообщение > 10 коротких.\n\n"
+        "✅ Нет спаму! Одно подробное сообщение поможет нам быстрее разбираться\n\n"
         f"👉 Перешли этот номер (<code>{support_id}</code>) менеджеру – и жди ответа!\n\n"
         "P.S. Дублируйте сообщения, если ответ долго не поступает. 😉"
     )
@@ -370,9 +369,6 @@ async def info_handler(callback: CallbackQuery):
         "🔄 <b>Правила возврата:</b>\n"
         "Возврат или замена возможны только при невалиде аккаунта."
         "Это защищает нас от мошенничества и гарантирует вам честный результат.\n\n"
-        
-        "💡 <b>Совет:</b>\n"
-        "Перед сдачей аккаунтов уточните у скупа: Новый ли лендинг? Это поможет вам избежать лишних невалидов."
     )
 
     # Используем ту же кнопку возврата, что и в поддержке, или создаем новую
@@ -425,10 +421,10 @@ async def admin_give_account(message: Message, command: CommandObject):
 
     # 4. Формируем текст выдачи
     success_text = (
-        "✅ <b>Оплата прошла успешно!</b>\n"
-        "🛒 Вот ваш заказ:\n\n"
+        "✅ <b>Успешно!</b>\n"
+        "🛒 Ваш заказ:\n\n"
         f"<pre>{accounts_list}</pre>\n\n"
-        "Спасибо за покупку! Ждем вас снова."
+        "Спасибо за покупку!"
     )
 
     # 5. Отправляем сообщение
@@ -441,4 +437,5 @@ async def admin_give_account(message: Message, command: CommandObject):
 # Заглушка для Custom Amount
 @router.callback_query(F.data == "buy_custom")
 async def buy_custom(callback: CallbackQuery):
+
     await callback.answer("Для покупки своего количества напишите в поддержку!", show_alert=True)
