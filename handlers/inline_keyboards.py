@@ -13,22 +13,22 @@ def get_main_menu() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     builder.button(text="🛒 За покупками", callback_data="buy_start")
     builder.button(text="🛜 Поддержка", callback_data="support")
-    builder.button(text="О нас", url="https://t.me/hellcashchannel")
-    builder.button(text="✅ Отзывы клиентов", callback_data="feedback")
+    #builder.button(text="О нас", url="https://t.me/hellcashchannel")
+   # builder.button(text="✅ Отзывы клиентов", callback_data="feedback")
     builder.button(text="ℹ️ Информация", callback_data="info")
-    builder.adjust(1, 2, 1, 1)
+    builder.adjust(2,1)
     return builder.as_markup()
 
 def get_packs_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     # Цена за 1 шт = 10$
     packs = [
-        ("Lite Pack (1 аккаунт)", 1, 10),
-        ("Starter Pack (3 аккаунта)", 3, 30),
-        ("Smart Pack (5 аккаунтов)", 5, 50),
-        ("Pro Pack (10 аккаунтов)", 10, 100),
-        ("Premium Pack (20 аккаунтов)", 20, 200),
-        ("Ultimate Pack (30 аккаунтов)", 30, 300),
+        ("1 аккаунт", 1, 10),
+        ("3 аккаунта", 3, 30),
+        ("5 аккаунтов", 5, 50),
+        ("10 аккаунтов", 10, 100),
+        ("20 аккаунтов", 20, 200),
+        ("30 аккаунтов", 30, 300),
     ]
 
     for name, qty, price in packs:
