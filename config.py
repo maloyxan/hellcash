@@ -6,4 +6,5 @@ ADMIN_ID = 8388163416  # Твой ID в Telegram (числом)
 # Ссылка на инструкцию
 MANUAL_URL = "https://teletype.in/@manualshik/KBmanual"
 
-SUPPORT_USERNAME = "gelikwork"
+
+SUPPORT_USERNAME = "hellcashsupport"
